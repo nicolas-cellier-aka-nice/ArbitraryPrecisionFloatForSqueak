@@ -1,0 +1,16 @@
+{
+	"category" : "ArbitraryPrecisionFloat",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "nice 4/29/2006 00:12",
+	"instvars" : [
+		"nBits",
+		"mantissa",
+		"exponent" ],
+	"name" : "ArbitraryPrecisionFloat",
+	"pools" : [
+		 ],
+	"super" : "Number",
+	"type" : "normal" }
