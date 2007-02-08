@@ -3,4 +3,5 @@
 		 },
 	"instance" : {
 		"adaptToArbitraryPrecisionFloat:andCompare:" : "nice 4/29/2006 01:16",
-		"adaptToArbitraryPrecisionFloat:andSend:" : "nice 4/28/2006 22:56" } }
+		"adaptToArbitraryPrecisionFloat:andSend:" : "nice 4/28/2006 22:56",
+		"asArbitraryPrecisionFloatNumBits:" : "nice 2/7/2007 22:59" } }

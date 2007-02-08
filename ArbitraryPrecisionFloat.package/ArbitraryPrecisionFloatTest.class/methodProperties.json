@@ -9,5 +9,8 @@
 		"testLessThan" : "nice 4/29/2006 01:45",
 		"testMultiply" : "nice 4/29/2006 03:21",
 		"testNegated" : "nice 4/29/2006 02:29",
+		"testRoundToNearestEven" : "nice 2/7/2007 23:15",
+		"testRoundToNearestEvenAgainstIEEEDouble" : "nice 2/7/2007 23:16",
+		"testSqrt" : "nice 2/7/2007 23:29",
 		"testSubstract" : "nice 4/29/2006 02:42",
 		"testSum" : "nice 4/29/2006 01:49" } }
