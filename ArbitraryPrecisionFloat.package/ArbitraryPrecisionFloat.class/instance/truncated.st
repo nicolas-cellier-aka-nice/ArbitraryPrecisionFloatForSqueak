@@ -1,5 +1,7 @@
 converting
 truncated
-	^ exponent negated > mantissa abs highBit
+	"answer the integer that is nearest to self in the interval between zero and self"
+	
+	^biasedExponent negated > self numBitsInMantissa 
 		ifTrue: [0]
-		ifFalse: [self shift: mantissa by: exponent]
+		ifFalse: [self shift: mantissa by: biasedExponent]

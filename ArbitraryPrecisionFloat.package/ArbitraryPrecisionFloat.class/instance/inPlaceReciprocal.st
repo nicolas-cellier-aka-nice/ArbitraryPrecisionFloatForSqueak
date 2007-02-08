@@ -12,5 +12,5 @@ inPlaceReciprocal
 		(num*2)+(sign*den) quo: den*2"
 		
 	mantissa := (1 bitShift: h + nBits + 1) + ma quo: (self shift: mantissa by: 1).
-	exponent := exponent negated - h - nBits.
+	biasedExponent := biasedExponent negated - h - nBits.
 	self round

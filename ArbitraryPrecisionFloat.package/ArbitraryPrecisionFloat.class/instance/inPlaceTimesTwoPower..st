@@ -1,4 +1,4 @@
 private
 inPlaceTimesTwoPower: n 
 	self isZero
-		ifFalse: [exponent := exponent + n]
+		ifFalse: [biasedExponent := biasedExponent + n]

@@ -10,7 +10,7 @@ digitCompare: b
 				ifFalse: [^ -1]].
 	b isZero
 		ifTrue: [^ 1].
-	compare := (mantissa abs highBit + exponent - b mantissa abs highBit - b exponent) sign.
+	compare := (self numBitsInMantissa + biasedExponent - b numBitsInMantissa - b biasedExponent) sign.
 	^ compare = 0
 		ifTrue: [(self - b) sign]
 		ifFalse: [compare]
