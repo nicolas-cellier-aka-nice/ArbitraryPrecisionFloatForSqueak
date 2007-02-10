@@ -5,13 +5,7 @@ sqrt
 	| decimalPlaces n norm guess previousGuess one stopIteration |
 	self < 0 
 		ifTrue: 
-			[^self class 
-				raise: #imaginaryResultSignal
-				receiver: self
-				selector: #sqrt
-				errorString: #errSquareRootNegativeNumber << #dialogs 
-						>> 'Can''t take square root of negative number'].
-
+			[^ FloatingPointException signal: 'undefined if less than zero.'].
 
 	"use additional bits"
 	decimalPlaces := nBits + 16.
