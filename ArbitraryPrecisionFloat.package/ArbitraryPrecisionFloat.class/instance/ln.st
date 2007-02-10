@@ -2,18 +2,13 @@ mathematical functions
 ln
 	"Answer the neperian logarithm of the receiver."
 
-	| x4 one p res s16 |
-	self <= self zero 
-		ifTrue: 
-			[^self class 
-				raise: #domainErrorSignal
-				receiver: self
-				selector: #ln
-				errorString: #errLogNegativeNumber << #dialogs 
-						>> 'Can''t take log of number <= 0'].
+	| x4 one two p res s16 |
+	self <= self zero ifTrue: [self error: 'ln is only defined for x > 0.0'].
+	
 	one := self one.
 	self = one ifTrue: [^self zero].
 	self < one ifTrue: [^self reciprocal ln negated].
+	two := one timesTwoPower: 1.
 
 	"Use Salamin algorithm (approximation is good if x is big enough)
 		x ln = Pi  / (2 * (1 agm: 4/x) ).
@@ -27,7 +22,7 @@ ln
 			[p := nBits + 16 - s16 exponent.
 			x4 inPlaceTimesTwoPower: p negated].
 	res := s16 pi / (one agm: x4) timesTwoPower: -1.
-	^(self = 2 
+	^(self = two 
 		ifTrue: [res / (p + 1)]
-		ifFalse: [p = 0 ifTrue: [res] ifFalse: [res - ((res one timesTwoPower: 1) ln * p)]]) 
+		ifFalse: [p = 0 ifTrue: [res] ifFalse: [res - ((two asArbitraryPrecisionFloatNumBits: nBits + p highBit + 16) ln * p)]]) 
 			asArbitraryPrecisionFloatNumBits: nBits
