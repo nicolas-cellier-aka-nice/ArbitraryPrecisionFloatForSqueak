@@ -1,5 +1,5 @@
 private
-inPlaceSubstractNoRound: b 
+inPlaceSubtractNoRound: b 
 	| delta |
 	b isZero ifTrue: [^self].
 	self isZero 

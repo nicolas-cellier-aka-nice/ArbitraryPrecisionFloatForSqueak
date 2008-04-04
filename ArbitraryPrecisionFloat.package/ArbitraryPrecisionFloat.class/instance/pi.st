@@ -17,7 +17,7 @@ pi
 	a := am.
 	b := gm.
 	a2 := a squared.
-	c inPlaceSubstract: (a2 - b squared timesTwoPower: k).
+	c inPlaceSubtract: (a2 - b squared timesTwoPower: k).
 	pi := (a2 timesTwoPower: 1) / c.
 	expo := (oldpi - pi) exponent.
 	expo isZero or: [expo > oldExpo or: [expo < (-1 - nBits)]]] 
