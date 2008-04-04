@@ -1,5 +1,5 @@
 arithmetic-internal
-substract: b
+subtract: b
 	"This must be sent with an ArbitraryPrecisionFloat argument"
 	
-	^self copy inPlaceSubstract: b
+	^self copy inPlaceSubtract: b
