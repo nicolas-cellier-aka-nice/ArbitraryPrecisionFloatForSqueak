@@ -10,12 +10,12 @@ inPlaceSubtract: b
 			[biasedExponent = b biasedExponent
 				ifTrue: [mantissa := mantissa - b mantissa]
 				ifFalse: 
-					["check for early truncation. beware, keep 1 bit for rounding"
+					["check for early truncation. beware, keep 2 bits for rounding"
 
 					delta := self exponent - b exponent.
-					delta > (nBits max: self numBitsInMantissa) 
+					delta - 2 > (nBits max: self numBitsInMantissa) 
 						ifFalse: 
-							[delta negated > (nBits max: b numBitsInMantissa) 
+							[delta negated - 2 > (nBits max: b numBitsInMantissa) 
 								ifTrue: 
 									[mantissa := b mantissa negated.
 									biasedExponent := b biasedExponent]
