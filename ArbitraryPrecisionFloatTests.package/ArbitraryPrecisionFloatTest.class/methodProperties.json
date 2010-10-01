@@ -1,0 +1,24 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"setUp" : "nice 4/29/2006 01:43",
+		"testEqual" : "nice 4/29/2006 01:43",
+		"testExpLn" : "nice 2/10/2007 21:39",
+		"testExpVsFloat" : "nice 2/10/2007 23:00",
+		"testIEEEArithmeticVersusFloat" : "nice 4/30/2006 02:49",
+		"testIEEEArithmeticVersusIntegerAndFraction" : "nice 4/5/2008 02:10",
+		"testIsZero" : "nice 4/29/2006 01:44",
+		"testLessThan" : "nice 4/29/2006 01:45",
+		"testLnVsFloat" : "nice 2/10/2007 23:00",
+		"testMultiply" : "nice 4/29/2006 03:21",
+		"testNegated" : "nice 4/29/2006 02:29",
+		"testNegative" : "nice 4/5/2008 02:13",
+		"testPi" : "nice 2/10/2007 01:03",
+		"testPositive" : "nice 4/5/2008 02:13",
+		"testRoundToNearestEven" : "nice 2/7/2007 23:15",
+		"testRoundToNearestEvenAgainstIEEEDouble" : "nice 2/7/2007 23:16",
+		"testSqrt" : "nice 2/7/2007 23:29",
+		"testSubstract" : "nice 4/29/2006 02:42",
+		"testSum" : "nice 4/29/2006 01:49",
+		"testZeroOne" : "nice 2/10/2007 01:03" } }

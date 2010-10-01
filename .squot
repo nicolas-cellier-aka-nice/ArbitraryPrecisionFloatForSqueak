@@ -1,0 +1,4 @@
+OrderedDictionary {
+	'ArbitraryPrecisionFloat.package' : #SquotCypressCodeSerializer,
+	'ArbitraryPrecisionFloatTests.package' : #SquotCypressCodeSerializer
+}
