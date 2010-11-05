@@ -3,6 +3,7 @@
 		 },
 	"instance" : {
 		"setUp" : "nice 4/29/2006 01:43",
+		"testCos" : "nice 11/5/2010 21:42",
 		"testEqual" : "nice 4/29/2006 01:43",
 		"testExpLn" : "nice 2/10/2007 21:39",
 		"testExpVsFloat" : "nice 2/10/2007 23:00",
@@ -18,6 +19,7 @@
 		"testPositive" : "nice 4/5/2008 02:13",
 		"testRoundToNearestEven" : "nice 2/7/2007 23:15",
 		"testRoundToNearestEvenAgainstIEEEDouble" : "nice 2/7/2007 23:16",
+		"testSin" : "nice 11/5/2010 20:34",
 		"testSqrt" : "nice 2/7/2007 23:29",
 		"testSubstract" : "nice 4/29/2006 02:42",
 		"testSum" : "nice 4/29/2006 01:49",
