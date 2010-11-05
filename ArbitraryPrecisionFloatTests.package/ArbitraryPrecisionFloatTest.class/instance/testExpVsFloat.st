@@ -4,6 +4,7 @@ testExpVsFloat
 	Unfortunately, we cannot trust native exp function too much...
 	it appears to incorrectly round last bit sometimes (at least with x86)"
 
+	<timeout: 10 "seconds">
 	| badFloat |
 	badFloat := OrderedCollection new.
 	-100 to: 100
