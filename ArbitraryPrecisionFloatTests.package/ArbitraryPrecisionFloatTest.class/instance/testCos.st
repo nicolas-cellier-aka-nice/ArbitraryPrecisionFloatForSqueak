@@ -1,6 +1,7 @@
 testing-trigonometry
 testCos
-	<timeout: 30 "seconds">
-	| badCos |
-	badCos := self checkDoublePrecisionSerieVsFloat: self trigonometricSerie forFunction: #cos.
-	badCos isEmpty ifFalse: [Transcript cr; show: 'bad cos for angles (degrees) ' , (badCos collect: [:i | i radiansToDegrees rounded]) printString]
+	-720 to: 720 do: [:i |
+		| rad arb |
+		rad := i degreesToRadians.
+		arb := rad asArbitraryPrecisionFloatNumBits: 53.
+		self assert: (rad cos - arb cos) abs <= (1.0 ulp * 5)].

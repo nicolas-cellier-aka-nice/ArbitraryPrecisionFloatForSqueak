@@ -1,6 +1,7 @@
 testing-trigonometry
 testSin
-	<timeout: 30 "seconds">
-	| badSin |
-	badSin := self checkDoublePrecisionSerieVsFloat: self trigonometricSerie forFunction: #sin.
-	badSin isEmpty ifFalse: [Transcript cr; show: 'bad sin for angles (degrees) ' , (badSin collect: [:i | i radiansToDegrees rounded]) printString]
+	-720 to: 720 do: [:i |
+		| rad arb |
+		rad := i degreesToRadians.
+		arb := rad asArbitraryPrecisionFloatNumBits: 53.
+		self assert: (rad sin - arb sin) abs <= rad sin ulp].
