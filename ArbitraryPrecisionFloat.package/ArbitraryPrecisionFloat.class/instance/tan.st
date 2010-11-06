@@ -1,6 +1,6 @@
 mathematical functions
 tan
-	^(ArbitraryPrecisionFloatForTrigonometry new
+	^(ArbitraryPrecisionFloatForTrigonometry
 		mantissa: mantissa
 		exponent: biasedExponent
 		nBits: nBits) tan

@@ -1,6 +1,6 @@
 mathematical functions
 cos
-	^(ArbitraryPrecisionFloatForTrigonometry new
+	^(ArbitraryPrecisionFloatForTrigonometry
 		mantissa: mantissa
 		exponent: biasedExponent
 		nBits: nBits) cos

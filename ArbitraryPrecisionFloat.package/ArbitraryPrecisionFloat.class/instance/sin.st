@@ -1,6 +1,6 @@
 mathematical functions
 sin
-	^(ArbitraryPrecisionFloatForTrigonometry new
+	^(ArbitraryPrecisionFloatForTrigonometry
 		mantissa: mantissa
 		exponent: biasedExponent
 		nBits: nBits) sin
