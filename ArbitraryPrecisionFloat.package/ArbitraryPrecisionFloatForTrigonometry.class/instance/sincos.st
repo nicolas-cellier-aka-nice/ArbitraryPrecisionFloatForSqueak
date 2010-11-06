@@ -7,7 +7,7 @@ sincos
 	sinneg := x negative.
 	x inPlaceAbs.
 	halfPi := pi timesTwoPower: -1.
-	(cosneg := x) > halfPi ifTrue: [x inPlaceSubtract: pi; inPlaceNegated].
+	(cosneg := x > halfPi) ifTrue: [x inPlaceSubtract: pi; inPlaceNegated].
 	quarterPi := halfPi timesTwoPower: -1.
 	x > quarterPi
 		ifTrue:
