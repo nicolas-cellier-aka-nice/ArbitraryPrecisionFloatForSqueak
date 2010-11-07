@@ -5,7 +5,7 @@ sin: x
 	| sin sin2 sin4 fifth five |
 	five := 5 asArbitraryPrecisionFloatNumBits: x numBits.
 	fifth := x / five.
-	sin := self powerExpansionSin: fifth.
+	sin := self powerExpansionSin: fifth precision: nBits + 8.
 	sin2 := sin squared.
 	sin2 inPlaceTimesTwoPower: 2.
 	sin4 := sin2 squared.
@@ -15,4 +15,3 @@ sin: x
 		inPlaceAdd: five;
 		inPlaceMultiplyBy: sin;
 		yourself
-	

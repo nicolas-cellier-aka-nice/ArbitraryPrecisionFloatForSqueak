@@ -1,15 +1,15 @@
 private
 cos: x
-	"Evaluate the cosine of x by cos(4x) formula and power series expansion."
+	"Evaluate the cosine of x by recursive cos(2x) formula and power series expansion.
+	Note that it is better to use this method with x <= pi/4."
 	
-	| cos cos2 cos4 quarter |
-	quarter := x timesTwoPower: -2.
-	cos := self powerExpansionCos: quarter.
-	cos2 := cos squared.
-	cos4 := cos2 squared.
-	^cos4
-		inPlaceSubtract: cos2;
-		inPlaceTimesTwoPower: 3;
-		inPlaceAdd: cos one;
-		yourself
-	
+	| one cos fraction power |
+	x isZero ifTrue: [^Array with: x zero with: x one].
+	power := ((nBits bitShift: -1) + x exponent max: 0) highBit.
+	fraction := x timesTwoPower: power negated.
+	cos := self powerExpansionCos: fraction precision: nBits + (1 bitShift: 1 + power).
+	one := x one.
+	power timesRepeat:
+		["Evaluate cos(2x)=2 cos(x)^2-1"
+		cos inPlaceMultiplyBy: cos; inPlaceTimesTwoPower: 1; inPlaceSubtract: one].
+	^cos
