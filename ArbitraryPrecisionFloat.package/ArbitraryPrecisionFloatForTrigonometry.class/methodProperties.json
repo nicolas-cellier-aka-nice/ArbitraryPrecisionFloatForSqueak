@@ -3,11 +3,14 @@
 		 },
 	"instance" : {
 		"cos" : "nice 11/1/2010 20:29",
-		"cos:" : "nice 11/1/2010 19:57",
+		"cos:" : "nice 11/7/2010 23:01",
 		"moduloNegPiToPi" : "nice 11/1/2010 20:41",
-		"powerExpansionCos:" : "nice 11/1/2010 19:46",
-		"powerExpansionSin:" : "nice 11/1/2010 19:53",
+		"powerExpansionArcTan:precision:" : "nice 11/7/2010 23:01",
+		"powerExpansionCos:precision:" : "nice 11/7/2010 23:01",
+		"powerExpansionSin:precision:" : "nice 11/7/2010 23:01",
+		"powerExpansionSinCos:precision:" : "nice 11/7/2010 23:00",
 		"sin" : "nice 11/1/2010 20:28",
-		"sin:" : "nice 11/1/2010 21:12",
-		"sincos" : "nice 11/6/2010 18:15",
-		"tan" : "nice 11/1/2010 21:11" } }
+		"sin:" : "nice 11/7/2010 23:01",
+		"sincos" : "nice 11/7/2010 23:04",
+		"sincos:" : "nice 11/7/2010 23:01",
+		"tan" : "nice 11/7/2010 23:04" } }

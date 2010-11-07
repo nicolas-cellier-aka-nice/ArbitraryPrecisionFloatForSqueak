@@ -2,7 +2,7 @@ private
 tan
 	"Evaluate the tangent of the receiver"
 
-	| halfPi quarterPi x sin sinneg cos cosneg |
+	| halfPi quarterPi x sincos sinneg cosneg |
 	x := self moduloNegPiToPi.
 	sinneg := x negative.
 	x inPlaceAbs.
@@ -12,12 +12,10 @@ tan
 	x > quarterPi
 		ifTrue:
 			[x inPlaceSubtract: halfPi; inPlaceNegated.
-			sin := self cos: x.
-			cos := self sin: x]
+			sincos := (self sincos: x) reversed]
 		ifFalse:
-			[sin := self sin: x.
-			cos := self cos: x].
-	sinneg ifTrue: [sin inPlaceNegated].
-	cosneg ifTrue: [cos inPlaceNegated].
-	sin inPlaceDivideBy: cos.
-	^sin asArbitraryPrecisionFloatNumBits: nBits
+			[sincos := self sincos: x].
+	sinneg ifTrue: [sincos first inPlaceNegated].
+	cosneg ifTrue: [sincos last inPlaceNegated].
+	sincos first inPlaceDivideBy: sincos last.
+	^sincos first asArbitraryPrecisionFloatNumBits: nBits

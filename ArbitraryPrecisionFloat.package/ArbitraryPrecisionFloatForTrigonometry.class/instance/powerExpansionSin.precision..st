@@ -1,11 +1,11 @@
 private
-powerExpansionSin: x
+powerExpansionSin: x precision: precBits
 	"Evaluate the sine of x by power series expansion."
 	
-	| count expo one sum term two x2 |
+	| count one sum term two x2 |
 	x isZero ifTrue: [^x].
 	one := x one.
-	two := one + one.
+	two := one timesTwoPower: 1.
 	count := two copy.
 	sum := x copy.
 	term := x copy.
@@ -16,7 +16,5 @@ powerExpansionSin: x
 	term inPlaceNegated.
 	count inPlaceAdd: two.
 	sum inPlaceAdd: term.
-	expo := term exponent.
-	expo + nBits + 6 < sum exponent] whileFalse.
+	term exponent + precBits < sum exponent] whileFalse.
 	^sum
-	
