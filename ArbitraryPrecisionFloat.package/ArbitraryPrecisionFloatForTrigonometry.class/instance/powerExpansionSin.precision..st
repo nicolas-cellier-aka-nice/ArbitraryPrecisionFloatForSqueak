@@ -3,7 +3,6 @@ powerExpansionSin: x precision: precBits
 	"Evaluate the sine of x by power series expansion."
 	
 	| count one sum term two x2 |
-	x isZero ifTrue: [^x].
 	one := x one.
 	two := one timesTwoPower: 1.
 	count := two copy.
