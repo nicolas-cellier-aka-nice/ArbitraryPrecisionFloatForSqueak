@@ -4,7 +4,7 @@ cos: x
 	Note that it is better to use this method with x <= pi/4."
 	
 	| one cos fraction power |
-	x isZero ifTrue: [^Array with: x zero with: x one].
+	x isZero ifTrue: [^x one].
 	power := ((nBits bitShift: -1) + x exponent max: 0) highBit.
 	fraction := x timesTwoPower: power negated.
 	cos := self powerExpansionCos: fraction precision: nBits + (1 bitShift: 1 + power).

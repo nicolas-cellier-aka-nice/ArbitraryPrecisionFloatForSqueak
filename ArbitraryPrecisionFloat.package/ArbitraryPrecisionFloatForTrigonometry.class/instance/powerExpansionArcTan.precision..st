@@ -3,7 +3,6 @@ powerExpansionArcTan: x precision: precBits
 	"Evaluate the arc tangent of x by power series expansion."
 	
 	| count one sum term two x2 |
-	x isZero ifTrue: [^x].
 	one := x one.
 	two := one timesTwoPower: 1.
 	count := one.

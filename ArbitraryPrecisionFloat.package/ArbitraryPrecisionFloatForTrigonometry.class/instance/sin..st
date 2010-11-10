@@ -3,6 +3,7 @@ sin: x
 	"Evaluate the sine of x by sin(5x) formula and power series expansion."
 	
 	| sin sin2 sin4 fifth five |
+	x isZero ifTrue: [^x zero].
 	five := 5 asArbitraryPrecisionFloatNumBits: x numBits.
 	fifth := x / five.
 	sin := self powerExpansionSin: fifth precision: nBits + 8.
