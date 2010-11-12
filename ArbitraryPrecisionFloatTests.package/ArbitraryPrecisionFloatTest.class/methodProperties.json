@@ -22,7 +22,7 @@
 		"testArcSin" : "nice 11/12/2010 15:35",
 		"testArcSinDomainError" : "10/18/2018 22:53:23",
 		"testArcTan" : "nice 11/12/2010 15:35",
-		"testArcTan2" : "10/18/2018 22:53:23",
+		"testArcTan2" : "nice 11/12/2010 22:24",
 		"testAsFloat" : "10/18/2018 22:53:23",
 		"testAsFloatWithUnderflow" : "10/18/2018 22:53:23",
 		"testAsFloatWithUnderflowAndExcessPrecision" : "10/18/2018 22:53:23",
