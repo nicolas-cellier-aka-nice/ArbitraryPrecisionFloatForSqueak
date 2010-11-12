@@ -3,6 +3,9 @@
 		 },
 	"instance" : {
 		"setUp" : "nice 4/29/2006 01:43",
+		"testArcCos" : "nice 11/12/2010 15:35",
+		"testArcSin" : "nice 11/12/2010 15:35",
+		"testArcTan" : "nice 11/12/2010 15:35",
 		"testCos" : "nice 11/10/2010 21:33",
 		"testCosVsFloat" : "nice 11/10/2010 21:33",
 		"testEqual" : "nice 4/29/2006 01:43",
