@@ -1,4 +1,3 @@
 testing-hyperbolic
 testSinh
-	<timeout: 10 "seconds">
-	self checkDoublePrecisionSerie: self hyperbolicSerie forFunction: #sinh
+	self testDoublePrecisionSerie: self hyperbolicSerie forFunction: #sinh
