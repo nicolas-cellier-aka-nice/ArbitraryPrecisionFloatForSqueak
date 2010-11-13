@@ -2,13 +2,14 @@ mathematical functions
 arcSin
 	"Evaluate the arc sine of the receiver."
 
-	| arcSin x |
+	| arcSin x one |
 	self isZero ifTrue: [^self].
-	x := self asArbitraryPrecisionFloatNumBits: 5 + nBits.
+	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.
 	x inPlaceAbs.
-	x > 1 ifTrue: [self error: 'cannot compute arcSin of a number greater than 1'].
-	arcSin := x = 1
+	one := x one.
+	x > one ifTrue: [self error: 'cannot compute arcSin of a number greater than 1'].
+	arcSin := x = one
 		ifTrue: [self pi timesTwoPower: -1]
-		ifFalse: [(x / (x one - x squared) sqrt) arcTan].
+		ifFalse: [(x / (one - x squared) sqrt) arcTan].
 	self negative ifTrue: [arcSin inPlaceNegated].
 	^arcSin asArbitraryPrecisionFloatNumBits: nBits
