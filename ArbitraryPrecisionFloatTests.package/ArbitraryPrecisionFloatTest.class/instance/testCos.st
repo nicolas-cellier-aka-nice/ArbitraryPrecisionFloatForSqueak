@@ -1,14 +1,6 @@
 testing-trigonometry
 testCos
+	<timeout: 10 "seconds">
 	| badCos |
-	badCos := OrderedCollection new.
-	-720 to: 720 do: [:i |
-		| rad arb dbl |
-		rad := i degreesToRadians.
-		arb := rad asArbitraryPrecisionFloatNumBits: 53.
-		self assert: ((rad cos - arb cos) abs <= rad cos ulp
-			or:
-				[badCos add: i.
-				dbl := arb asArbitraryPrecisionFloatNumBits: 106.
-				(dbl cos asArbitraryPrecisionFloatNumBits: 53) = arb cos])].
-	badCos isEmpty ifFalse: [Transcript cr; show: 'bad cos for angles (degree) ' , badCos printString]
+	badCos := self testDoublePrecisionSerieVsFloat: self trigonometricSerie forFunction: #cos.
+	badCos isEmpty ifFalse: [Transcript cr; show: 'bad cos for angles (degrees) ' , (badCos collect: [:i | i radiansToDegrees rounded]) printString]

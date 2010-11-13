@@ -1,5 +1,5 @@
 testing-arithmetic
-testSubstract
+testSubtract
 	self assert: zero - zero = zero.
 	self assert: zero - minusOne = one.
 	self assert: huge - zero = huge.
