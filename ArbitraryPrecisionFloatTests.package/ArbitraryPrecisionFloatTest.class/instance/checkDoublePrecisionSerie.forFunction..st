@@ -1,3 +1,9 @@
 private
 checkDoublePrecisionSerie: serie forFunction: func 
-	^self checkDoublePrecisionSerie: serie forFunction: func nBits: Float precision
+	serie do: [:y |
+		| arb dbl farb fdbl |
+		arb := y asArbitraryPrecisionFloatNumBits: Float precision.
+		dbl := arb asArbitraryPrecisionFloatNumBits: Float precision * 2.
+		farb := arb perform: func.
+		fdbl := (dbl perform: func) asArbitraryPrecisionFloatNumBits: Float precision.
+		self assert: (fdbl - farb) isZero]

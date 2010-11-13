@@ -2,5 +2,5 @@ testing-trigonometry
 testCos
 	<timeout: 10 "seconds">
 	| badCos |
-	badCos := self testDoublePrecisionSerieVsFloat: self trigonometricSerie forFunction: #cos.
+	badCos := self checkDoublePrecisionSerieVsFloat: self trigonometricSerie forFunction: #cos.
 	badCos isEmpty ifFalse: [Transcript cr; show: 'bad cos for angles (degrees) ' , (badCos collect: [:i | i radiansToDegrees rounded]) printString]
