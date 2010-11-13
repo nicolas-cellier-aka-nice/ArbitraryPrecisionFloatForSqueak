@@ -1,3 +1,3 @@
 testing-hyperbolic
 testSinh
-	self testDoublePrecisionSerie: self hyperbolicSerie forFunction: #sinh
+	self checkDoublePrecisionSerie: self hyperbolicSerie forFunction: #sinh

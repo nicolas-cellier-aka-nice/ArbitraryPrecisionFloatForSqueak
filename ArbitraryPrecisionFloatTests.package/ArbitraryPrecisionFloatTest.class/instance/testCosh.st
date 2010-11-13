@@ -1,3 +1,3 @@
 testing-hyperbolic
 testCosh
-	self testDoublePrecisionSerie: self hyperbolicSerie forFunction: #cosh
+	self checkDoublePrecisionSerie: self hyperbolicSerie forFunction: #cosh
