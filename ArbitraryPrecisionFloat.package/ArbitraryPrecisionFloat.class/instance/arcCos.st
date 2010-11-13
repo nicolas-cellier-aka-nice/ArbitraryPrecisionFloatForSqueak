@@ -4,7 +4,7 @@ arcCos
 
 	| arcCos x one |
 	self isZero ifTrue: [^(self pi timesTwoPower: -1)].
-	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.
+	x := self asArbitraryPrecisionFloatNumBits: 8 + nBits.
 	x inPlaceAbs.
 	one := x one.
 	x > one ifTrue: [self error: 'cannot compute arcCos of a number greater than 1'].
