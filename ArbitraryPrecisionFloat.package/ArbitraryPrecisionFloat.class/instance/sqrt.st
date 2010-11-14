@@ -3,17 +3,17 @@ sqrt
 	"Answer the square root of the receiver."
 
 	| decimalPlaces n norm guess previousGuess one stopIteration |
-	self < 0 
+	self negative 
 		ifTrue: 
-			[^ FloatingPointException signal: 'undefined if less than zero.'].
+			[^ FloatingPointException signal: 'sqrt undefined for number less than zero.'].
+	self isZero ifTrue: [^self].
 
 	"use additional bits"
 	decimalPlaces := nBits + 16.
-
-	"constants"
-	one := 1 asArbitraryPrecisionFloatNumBits: decimalPlaces.
-	one normalize.
 	n := self asArbitraryPrecisionFloatNumBits: decimalPlaces.
+	
+	"constants"
+	one := n one.
 
 	"normalize n"
 	norm := n exponent quo: 2.
@@ -21,12 +21,12 @@ sqrt
 
 	"Initial guess for sqrt(1/n)"
 	previousGuess := self class 
-				mantissa: 1
-				exponent: (n exponent negated quo: 2)
+				mantissa: 3
+				exponent: -2 - (n exponent quo: 2)
 				nBits: decimalPlaces.
 	guess := previousGuess copy.
 
-	"use iterations x(n+1) := x*( 1 +  (1-x*x*n)/2) to guess sqrt(1/n)"
+	"use iterations x(k+1) := x*( 1 +  (1-x*x*n)/2) to guess sqrt(1/n)"
 	
 	[guess inPlaceMultiplyNoRoundBy: guess.
 	guess inPlaceMultiplyBy: n.
@@ -40,7 +40,7 @@ sqrt
 	guess inPlaceMultiplyNoRoundBy: previousGuess.
 	guess negative ifTrue: [guess inPlaceNegated].
 
-	stopIteration] 
+	guess isZero or: [stopIteration]] 
 			whileFalse: 
 				[guess round.
 				previousGuess inPlaceCopy: guess].
