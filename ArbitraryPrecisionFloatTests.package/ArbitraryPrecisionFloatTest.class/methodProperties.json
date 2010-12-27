@@ -6,6 +6,7 @@
 		"checkDoublePrecisionSerieVsFloat:forFunction:" : "nice 11/13/2010 19:18",
 		"hyperbolicSerie" : "nice 11/13/2010 19:16",
 		"inverseTrigonometricSerie" : "nice 11/13/2010 19:17",
+		"largeTrigonometricSerie" : "nice 12/27/2010 19:38",
 		"setUp" : "nice 4/29/2006 01:43",
 		"testArcCos" : "nice 11/13/2010 19:21",
 		"testArcSin" : "nice 11/13/2010 19:21",
@@ -39,5 +40,8 @@
 		"testSum" : "nice 4/29/2006 01:49",
 		"testTan" : "nice 11/13/2010 19:20",
 		"testTanh" : "nice 11/13/2010 23:57",
+		"testVeryLargeCos" : "nice 12/27/2010 19:38",
+		"testVeryLargeSin" : "nice 12/27/2010 19:38",
+		"testVeryLargeTan" : "nice 12/27/2010 19:38",
 		"testZeroOne" : "nice 11/13/2010 21:18",
 		"trigonometricSerie" : "nice 11/13/2010 15:57" } }
