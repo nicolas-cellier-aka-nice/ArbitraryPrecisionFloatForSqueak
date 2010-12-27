@@ -11,11 +11,11 @@ moduloNegPiToPi
 	twoPi := pi timesTwoPower: 1.
 	x > pi ifTrue:
 		[quo := x + pi quo: twoPi.
-		quo highBit > nBits ifTrue:
+		quo highBit * 2 > nBits ifTrue:
 			[x := (ArbitraryPrecisionFloat
 				mantissa: mantissa abs
 				exponent: biasedExponent
-				nBits: nBits + quo highBit).
+				nBits: nBits * 3 // 2 + quo highBit + 2).
 			pi := x pi.
 			twoPi := pi timesTwoPower: 1.
 			quo := x + pi quo: twoPi].
