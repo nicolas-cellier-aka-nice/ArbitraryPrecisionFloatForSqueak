@@ -1,6 +1,6 @@
 mathematical functions
-argSinh
-	"Evaluate the arg hyperbolic cosine of the receiver."
+arSinH
+	"Evaluate the area hyperbolic cosine of the receiver."
 
 	| argSinh x one |
 	self isZero ifTrue: [^self].
