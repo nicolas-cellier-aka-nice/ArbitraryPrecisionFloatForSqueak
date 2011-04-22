@@ -1,6 +1,6 @@
 mathematical functions
-argCosh
-	"Evaluate the arg hyperbolic cosine of the receiver."
+arCosH
+	"Evaluate the area hyperbolic cosine of the receiver."
 
 	| argCosh x one y two |
 	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.

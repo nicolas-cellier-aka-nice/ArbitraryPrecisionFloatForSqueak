@@ -1,6 +1,6 @@
 mathematical functions
-argTanh
-	"Evaluate the arg hyperbolic cosine of the receiver."
+arTanH
+	"Evaluate the area hyperbolic cosine of the receiver."
 
 	| argTanh x one |
 	self isZero ifTrue: [^self].

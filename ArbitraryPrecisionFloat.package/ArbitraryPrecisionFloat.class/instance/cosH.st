@@ -1,5 +1,5 @@
 mathematical functions
-cosh
+cosH
 	| e x |
 	self isZero ifTrue: [^self one].
 	self exponent negated > nBits ifTrue: [^self one].
