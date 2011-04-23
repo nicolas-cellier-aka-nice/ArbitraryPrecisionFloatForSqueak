@@ -5,7 +5,7 @@ inPlaceSqrt
 	| guess guessSquared delta shift |
 	self negative 
 		ifTrue: 
-			[^ FloatingPointException signal: 'sqrt undefined for number less than zero.'].
+			[^ DomainError signal: 'sqrt undefined for number less than zero.'].
 	self isZero ifTrue: [^self].
 
 	shift := 2 * nBits - mantissa highBit.

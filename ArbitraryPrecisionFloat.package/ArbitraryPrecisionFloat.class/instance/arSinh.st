@@ -1,5 +1,5 @@
 mathematical functions
-arSinH
+arSinh
 	"Evaluate the area hyperbolic cosine of the receiver."
 
 	| argSinh x one |

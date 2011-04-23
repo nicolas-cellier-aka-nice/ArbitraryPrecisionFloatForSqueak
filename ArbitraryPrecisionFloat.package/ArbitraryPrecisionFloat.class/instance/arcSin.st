@@ -7,7 +7,7 @@ arcSin
 	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.
 	x inPlaceAbs.
 	one := x one.
-	x > one ifTrue: [self error: 'cannot compute arcSin of a number greater than 1'].
+	x > one ifTrue: [DomainError signal: 'cannot compute arcSin of a number greater than 1'].
 	arcSin := x = one
 		ifTrue: [self pi timesTwoPower: -1]
 		ifFalse: [(x / (one - x squared) sqrt) arcTan].

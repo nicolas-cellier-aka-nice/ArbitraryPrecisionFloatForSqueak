@@ -7,7 +7,7 @@ arcCos
 	x := self asArbitraryPrecisionFloatNumBits: 8 + nBits.
 	x inPlaceAbs.
 	one := x one.
-	x > one ifTrue: [self error: 'cannot compute arcCos of a number greater than 1'].
+	x > one ifTrue: [DomainError signal: 'cannot compute arcCos of a number greater than 1'].
 	arcCos := x = one
 		ifTrue: [self zero]
 		ifFalse: [((one - x squared) sqrt / x) arcTan].

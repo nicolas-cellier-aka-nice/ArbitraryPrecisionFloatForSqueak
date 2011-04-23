@@ -1,11 +1,11 @@
 mathematical functions
-arCosH
+arCosh
 	"Evaluate the area hyperbolic cosine of the receiver."
 
 	| argCosh x one y two |
 	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.
 	one := x one.
-	x < one ifTrue: [self error: 'cannot compute argCosh of a number less than 1'].
+	x < one ifTrue: [DomainError signal: 'cannot compute argCosh of a number less than 1'].
 	x = one ifTrue: [^self zero].
 	y := x - one.
 	y < one

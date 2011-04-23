@@ -5,7 +5,7 @@ sqrt
 	| decimalPlaces n norm guess previousGuess one stopIteration |
 	self negative 
 		ifTrue: 
-			[^ FloatingPointException signal: 'sqrt undefined for number less than zero.'].
+			[^ DomainError signal: 'sqrt undefined for number less than zero.'].
 	self isZero ifTrue: [^self].
 
 	"use additional bits"
