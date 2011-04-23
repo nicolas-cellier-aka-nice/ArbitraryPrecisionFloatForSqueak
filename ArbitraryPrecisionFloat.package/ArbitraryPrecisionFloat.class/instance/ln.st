@@ -3,7 +3,7 @@ ln
 	"Answer the neperian logarithm of the receiver."
 
 	| x4 one two p res s16 |
-	self <= self zero ifTrue: [self error: 'ln is only defined for x > 0.0'].
+	self <= self zero ifTrue: [DomainError signal: 'ln is only defined for x > 0.0'].
 	
 	one := self one.
 	self = one ifTrue: [^self zero].
