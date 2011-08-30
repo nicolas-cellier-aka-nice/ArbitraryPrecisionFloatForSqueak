@@ -1,6 +1,6 @@
 testing-trigonometry
 testArcTan2
-	<timeout: 10 "seconds">
+	<timeout: 30 "seconds">
 	-5 to: 5 by: 4/10 do: [:y |
 		| yf yd |
 		yf := y asArbitraryPrecisionFloatNumBits: Float precision.
