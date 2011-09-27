@@ -4,5 +4,5 @@ pi
 
 	^pi ifNil: [ pi := (ArbitraryPrecisionFloat
 		mantissa: 0
-		exponent: biasedExponent
+		exponent: 0
 		nBits: nBits * 2 + 2) pi ]

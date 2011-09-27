@@ -17,6 +17,8 @@
 		"adaptToFraction:andSend:" : "nice 4/29/2006 00:09",
 		"adaptToInteger:andCompare:" : "nice 4/29/2006 01:19",
 		"adaptToInteger:andSend:" : "nice 4/29/2006 00:09",
+		"adaptToScaledDecimal:andCompare:" : "nice 9/27/2011 20:20",
+		"adaptToScaledDecimal:andSend:" : "nice 9/27/2011 20:20",
 		"add:" : "nice 2/8/2007 00:07",
 		"agm:" : "nice 2/10/2007 00:57",
 		"arCosh" : "nice 5/4/2011 21:28",
