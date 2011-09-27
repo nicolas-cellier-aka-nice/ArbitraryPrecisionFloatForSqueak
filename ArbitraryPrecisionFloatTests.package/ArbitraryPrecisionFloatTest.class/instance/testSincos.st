@@ -3,7 +3,7 @@ testSincos
 	<timeout: 30 "seconds">
 	self trigonometricSerie do: [:aFloat |
 		| x sc s c |
-		x := aFloat asArbitraryPrecisionFloatNumBits: Float precision.
+		x := aFloat asArbitraryPrecisionFloatNumBits: 53.
 		sc := x sincos.
 		s := x sin.
 		c := x cos.
