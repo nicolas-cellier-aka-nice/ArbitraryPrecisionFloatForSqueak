@@ -26,4 +26,4 @@ nextArbitraryPrecisionFloatNumBits: numBits
 				+ (fractionPart // (base raisedToInteger: numberOfTrailingZeroInFractionPart)).
 			exponent := exponent - numberOfNonZeroFractionDigits].
 	neg ifTrue: [mantissa := mantissa negated].
-	^ArbitraryPrecisionFloat mantissa: mantissa exponent: exponent nBits: numBits
+	^self makeArbitraryPrecisionFloatFromMantissa: mantissa exponent: exponent base: base numBits: numBits
