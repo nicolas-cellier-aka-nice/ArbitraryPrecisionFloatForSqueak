@@ -11,7 +11,7 @@ absPrintExactlyOn: aStream base: base
 
 	| fBase significand exp baseExpEstimate r s mPlus mMinus scale roundingIncludesLimits d tc1 tc2 fixedFormat decPointCount shead slowbit |
 	fBase := base asFloat.
-	self reduce.
+	self normalize.
 	significand := mantissa abs.
 	roundingIncludesLimits := significand even.
 	exp := biasedExponent.
