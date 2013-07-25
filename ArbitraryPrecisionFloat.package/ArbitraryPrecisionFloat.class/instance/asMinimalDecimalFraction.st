@@ -1,21 +1,19 @@
 printing
-absPrintExactlyOn: aStream base: base
-	"Print my value on a stream in the given base. 
-	Based upon the algorithm outlined in:
-	Robert G. Burger and R. Kent Dybvig
-	Printing Floating Point Numbers Quickly and Accurately
-	ACM SIGPLAN 1996 Conference on Programming Language Design and Implementation
-	June 1996.
-	This version guarantees that the printed representation exactly represents my value
-	by using exact integer arithmetic."
+asMinimalDecimalFraction
+	"Answer the shortest decimal Fraction that will equal self when converted back asFloat.
+	A decimal Fraction has only powers of 2 and 5 as decnominator.
+	For example, 0.1 asMinimalDecimalFraction = (1/10)."
 
-	| fBase significand exp baseExpEstimate r s mPlus mMinus scale roundingIncludesLimits d tc1 tc2 fixedFormat decPointCount shead slowbit |
-	fBase := base asFloat.
+	| significand exp baseExpEstimate r s mPlus mMinus scale roundingIncludesLimits d tc1 tc2 fixedFormat decPointCount shead slowbit numerator denominator |
+	self = 0.0 ifTrue: [^0].
+	self < 0.0 ifTrue: [^self negated asMinimalDecimalFraction negated].
 	self normalize.
 	significand := mantissa abs.
 	roundingIncludesLimits := significand even.
 	exp := biasedExponent.
-	baseExpEstimate := (self exponent * fBase reciprocalLogBase2 - 1.0e-10) ceiling.
+	baseExpEstimate := (self exponent * 10.0 reciprocalLogBase2 - 1.0e-10) ceiling.
+	numerator := 0.
+	denominator := 0.
 	exp >= 0
 		ifTrue:
 			[significand isPowerOfTwo
@@ -39,23 +37,23 @@ absPrintExactlyOn: aStream base: base
 					s := 1 bitShift: 1 - exp.
 					mPlus := mMinus := 1]].
 	baseExpEstimate >= 0
-		ifTrue: [s := s * (base raisedToInteger: baseExpEstimate)]
+		ifTrue: [s := s * (10 raisedToInteger: baseExpEstimate)]
 		ifFalse:
-			[scale := base raisedToInteger: baseExpEstimate negated.
+			[scale := 10 raisedToInteger: baseExpEstimate negated.
 			r := r * scale.
 			mPlus := mPlus * scale.
 			mMinus := mMinus * scale].
 	((r + mPlus >= s) and: [roundingIncludesLimits or: [r + mPlus > s]])
 		ifTrue: [baseExpEstimate := baseExpEstimate + 1]
 		ifFalse:
-			[r := r * base.
-			mPlus := mPlus * base.
-			mMinus := mMinus * base].
+			[r := r * 10.
+			mPlus := mPlus * 10.
+			mMinus := mMinus * 10].
 	(fixedFormat := baseExpEstimate between: -3 and: 6)
 		ifTrue:
 			[decPointCount := baseExpEstimate.
 			baseExpEstimate <= 0
-				ifTrue: [aStream nextPutAll: ('0.000000' truncateTo: 2 - baseExpEstimate)]]
+				ifTrue: [denominator := 10 raisedTo: baseExpEstimate negated]]
 		ifFalse:
 			[decPointCount := 1]. 
 	slowbit := 1 - s lowBit .
@@ -64,19 +62,23 @@ absPrintExactlyOn: aStream base: base
 	r := r - (d * s).
 	(tc1 := (r <= mMinus) and: [roundingIncludesLimits or: [r < mMinus]]) |
 	(tc2 := (r + mPlus >= s) and: [roundingIncludesLimits or: [r + mPlus > s]])] whileFalse:
-		[aStream nextPut: (Character digitValue: d).
-		r := r * base.
-		mPlus := mPlus * base.
-		mMinus := mMinus * base.
+		[numerator := 10 * numerator + d.
+		denominator := 10 * denominator.
+		r := r * 10.
+		mPlus := mPlus * 10.
+		mMinus := mMinus * 10.
 		decPointCount := decPointCount - 1.
-		decPointCount = 0 ifTrue: [aStream nextPut: $.]].
+		decPointCount = 0 ifTrue: [denominator := 1]].
 	tc2 ifTrue:
 		[(tc1 not or: [r * 2 >= s]) ifTrue: [d := d + 1]].
-	aStream nextPut: (Character digitValue: d).
+	numerator := 10 * numerator + d.
+	denominator := 10 * denominator.
 	decPointCount > 0
 		ifTrue:
-		[decPointCount - 1 to: 1 by: -1 do: [:i | aStream nextPut: $0].
-		aStream nextPutAll: '.0'].
-	fixedFormat ifFalse:
-		[aStream nextPut: $e.
-		aStream nextPutAll: (baseExpEstimate - 1) printString]
+			[numerator := (10 raisedTo: decPointCount - 1) * numerator].
+			fixedFormat ifFalse:
+				[(baseExpEstimate - 1) > 0
+					ifTrue: [numerator := (10 raisedTo: baseExpEstimate - 1) * numerator]
+					ifFalse: [denominator := (10 raisedTo: 1 - baseExpEstimate) * (denominator max: 1)]].
+			denominator < 2 ifTrue: [^numerator].
+	^numerator / denominator
