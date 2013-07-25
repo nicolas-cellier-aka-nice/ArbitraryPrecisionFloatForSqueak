@@ -34,9 +34,9 @@ asArbitraryPrecisionFloatNumBits: n
 	"Remove excess bits in the mantissa."
 	hm > nBits 
 		ifTrue: 
-			[exponent := exponent + hm - n.
-			hasTruncatedBits := hasTruncatedBits or: [mantissa anyBitOfMagnitudeFrom: 1 to: hm - n].
-			mantissa := mantissa bitShift: n - hm].
+			[exponent := exponent + hm - nBits.
+			hasTruncatedBits := hasTruncatedBits or: [mantissa anyBitOfMagnitudeFrom: 1 to: hm - nBits].
+			mantissa := mantissa bitShift: nBits - hm].
 
 	"Check if mantissa must be rounded upward.
 	The case of tie (mantissa odd & hasTruncatedBits not)
