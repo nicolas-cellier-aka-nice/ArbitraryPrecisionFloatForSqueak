@@ -5,4 +5,4 @@ arithmetic
 		ifFalse: [^ aNumber adaptToArbitraryPrecisionFloat: self andSend: #/].
 	n := nBits max: aNumber numBits.
 	^ (self asArbitraryPrecisionFloatNumBits: n)
-		divideBy: (aNumber asArbitraryPrecisionFloatNumBits: n)
+		copy inPlaceDivideBy: (aNumber asArbitraryPrecisionFloatNumBits: n)
