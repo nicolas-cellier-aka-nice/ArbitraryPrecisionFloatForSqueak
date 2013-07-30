@@ -9,14 +9,14 @@ nextToward: aNumber
 	"if self is greater, decrease self, but never under aNumber"
 	self > aNumber 
 		ifTrue: 
-			[next := self nextTowardNegativeInfinity.
+			[next := self predecessor.
 			^next >= aNumber 
 				ifTrue: [next]
 				ifFalse: [aNumber]].
 
 	"if self is smaller, increase self, but never above aNumber"
 	self < aNumber 
-		ifTrue: [next := self nextTowardPositiveInfinity.
+		ifTrue: [next := self successor.
 			^next <= aNumber 
 				ifTrue: [next]
 				ifFalse: [aNumber]].
