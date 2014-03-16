@@ -5,8 +5,8 @@ asMinimalDecimalFraction
 	For example, 0.1 asMinimalDecimalFraction = (1/10)."
 
 	| significand exp baseExpEstimate r s mPlus mMinus scale roundingIncludesLimits d tc1 tc2 fixedFormat decPointCount shead slowbit numerator denominator |
-	self = 0.0 ifTrue: [^0].
-	self < 0.0 ifTrue: [^self negated asMinimalDecimalFraction negated].
+	self isZero ifTrue: [^0].
+	self negative ifTrue: [^self negated asMinimalDecimalFraction negated].
 	self normalize.
 	significand := mantissa abs.
 	roundingIncludesLimits := significand even.
