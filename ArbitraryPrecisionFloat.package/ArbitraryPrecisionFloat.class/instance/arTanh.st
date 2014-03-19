@@ -1,6 +1,6 @@
 mathematical functions
 arTanh
-	"Evaluate the area hyperbolic cosine of the receiver."
+	"Evaluate the area hyperbolic tangent of the receiver."
 
 	| arTanh x one |
 	self isZero ifTrue: [^self].
