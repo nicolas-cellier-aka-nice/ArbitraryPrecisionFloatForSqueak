@@ -47,6 +47,7 @@
 		"testPi" : "nice 2/10/2007 01:03",
 		"testPositive" : "nice 4/5/2008 02:13",
 		"testPrintAndEvaluate" : "nice 3/18/2014 23:24",
+		"testReciprocal" : "nice 7/18/2014 13:29",
 		"testRoundToNearestEven" : "nice 2/7/2007 23:15",
 		"testRoundToNearestEvenAgainstIEEEDouble" : "nice 2/7/2007 23:16",
 		"testSin" : "nice 8/30/2011 03:04",
