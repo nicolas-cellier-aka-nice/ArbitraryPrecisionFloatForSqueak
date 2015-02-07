@@ -6,7 +6,7 @@ arcTan
 	self isZero ifTrue: [^self].
 	self > 1
 		ifTrue:
-			[x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.
+			[x := self asArbitraryPrecisionFloatNumBits: nBits * 2 + 2.
 			x inPlaceAbs.
 			arcTan := (x pi timesTwoPower: -1) - x reciprocal arcTan]
 		ifFalse:
