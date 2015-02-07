@@ -2,12 +2,12 @@
 	"class" : {
 		 },
 	"instance" : {
-		"checkDoublePrecision:forFunction:nBits:" : "10/18/2018 22:53:23",
-		"checkDoublePrecisionSerie:forFunction:" : "nice 11/13/2010 19:18",
-		"checkDoublePrecisionSerie:forFunction:nBits:" : "10/18/2018 22:53:23",
-		"checkDoublePrecisionSerieVsFloat:forFunction:" : "nice 11/13/2010 19:18",
-		"checkThatEvaluatingFunction:toDoublePrecisionOf:equals:" : "10/18/2018 22:53:23",
-		"checkThatEvaluatingFunction:toQuadruplePrecisionOf:equals:" : "10/18/2018 22:53:23",
+		"checkDoublePrecision:forFunction:nBits:" : "nice 2/7/2015 02:41",
+		"checkDoublePrecisionSerie:forFunction:" : "nice 2/7/2015 01:49",
+		"checkDoublePrecisionSerie:forFunction:nBits:" : "nice 2/7/2015 02:14",
+		"checkDoublePrecisionSerieVsFloat:forFunction:" : "nice 2/7/2015 02:43",
+		"checkThatEvaluatingFunction:toDoublePrecisionOf:equals:" : "nice 2/7/2015 02:44",
+		"checkThatEvaluatingFunction:toQuadruplePrecisionOf:equals:" : "nice 2/7/2015 02:43",
 		"hyperbolicSerie" : "nice 11/13/2010 19:16",
 		"inverseTrigonometricSerie" : "nice 11/13/2010 19:17",
 		"largeTrigonometricSerie" : "nice 12/27/2010 19:38",
