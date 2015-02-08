@@ -5,7 +5,7 @@ arSinh
 	| arSinh x one |
 	self isZero ifTrue: [^self].
 	self exponent negated > nBits ifTrue: [^self].
-	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits + (0 max: self exponent negated).
+	x := self asArbitraryPrecisionFloatNumBits: 16 + nBits + (0 max: self exponent negated).
 	x inPlaceAbs.
 	one := x one.
 	arSinh := ((x squared + one) sqrt + x) ln.

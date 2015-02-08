@@ -4,7 +4,7 @@ arcSin
 
 	| arcSin x one |
 	self isZero ifTrue: [^self].
-	x := self asArbitraryPrecisionFloatNumBits: 6 + nBits.
+	x := self asArbitraryPrecisionFloatNumBits: 16 + nBits.
 	x inPlaceAbs.
 	one := x one.
 	x > one ifTrue: [DomainError signal: 'cannot compute arcSin of a number greater than 1'].

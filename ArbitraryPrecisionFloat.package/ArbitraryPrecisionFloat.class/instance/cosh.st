@@ -3,7 +3,7 @@ cosh
 	| e x |
 	self isZero ifTrue: [^self one].
 	self exponent negated > nBits ifTrue: [^self one].
-	x := self asArbitraryPrecisionFloatNumBits: nBits + 6.
+	x := self asArbitraryPrecisionFloatNumBits: nBits + 16.
 	e := x exp.
 	^e
 		inPlaceAdd: e reciprocal;
