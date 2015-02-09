@@ -1,14 +1,15 @@
 private
-powerExpansionSin: x precision: precBits
-	"Evaluate the sine of x by power series expansion."
+powerExpansionSinPrecision: precBits
+	"Evaluate the sine of the receiver by power series expansion.
+	The algorithm is interesting when the receiver is close to zero"
 	
 	| count one sum term two x2 |
-	one := x one.
+	one := self one.
 	two := one timesTwoPower: 1.
 	count := two copy.
-	sum := x copy.
-	term := x copy.
-	x2 := x squared.
+	sum := self copy.
+	term := self copy.
+	x2 := self squared.
 	
 	[term inPlaceMultiplyBy: x2.
 	term inPlaceDivideBy: count * (count + one).

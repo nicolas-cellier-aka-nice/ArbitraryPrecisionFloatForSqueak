@@ -2,22 +2,26 @@ private
 tan
 	"Evaluate the tangent of the receiver"
 
-	| halfPi quarterPi x sincos sinneg cosneg |
-	nBits := nBits + 6.
+	| halfPi quarterPi x sincos neg tan |
 	x := self moduloNegPiToPi.
-	sinneg := x negative.
+	neg := x negative.
 	x inPlaceAbs.
 	halfPi := pi timesTwoPower: -1.
-	(cosneg := x > halfPi) ifTrue: [x inPlaceSubtract: pi; inPlaceNegated].
-	quarterPi := halfPi timesTwoPower: -1.
-	x > quarterPi
+	(x > halfPi)
 		ifTrue:
-			[x inPlaceSubtract: halfPi; inPlaceNegated.
-			sincos := (self sincos: x) reversed]
+			[x inPlaceSubtract: pi; inPlaceNegated.
+			neg := neg not].
+	x exponent * -4 >= nBits
+		ifTrue: [tan := x powerExpansionTanPrecision: x numBits]
 		ifFalse:
-			[sincos := self sincos: x].
-	nBits := nBits - 6.
-	sinneg ifTrue: [sincos first inPlaceNegated].
-	cosneg ifTrue: [sincos last inPlaceNegated].
-	sincos first inPlaceDivideBy: sincos last.
-	^sincos first asArbitraryPrecisionFloatNumBits: nBits
+			[quarterPi := halfPi timesTwoPower: -1.
+			x > quarterPi
+				ifTrue:
+					[x inPlaceSubtract: halfPi; inPlaceNegated.
+					sincos := (self sincos: x) reversed]
+				ifFalse:
+					[sincos := self sincos: x].
+			sincos first inPlaceDivideBy: sincos last.
+			tan := sincos first].
+	neg ifTrue: [tan inPlaceNegated].
+	^tan asArbitraryPrecisionFloatNumBits: nBits

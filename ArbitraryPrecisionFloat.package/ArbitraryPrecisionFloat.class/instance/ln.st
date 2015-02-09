@@ -22,7 +22,7 @@ ln
 			[p := prec - e.
 			prec := prec + p highBit].
 	selfHighRes := self asArbitraryPrecisionFloatNumBits: prec.
-	(selfHighRes - one) exponent * -2 >= nBits ifTrue: [^(selfHighRes powerExpansionLn asArbitraryPrecisionFloatNumBits: nBits)].
+	(selfHighRes - one) exponent * -4 >= nBits ifTrue: [^(selfHighRes powerExpansionLnPrecision: prec) asArbitraryPrecisionFloatNumBits: nBits].
 	self < one ifTrue: [selfHighRes inPlaceReciprocal].	"Use ln(1/x) => - ln(x)"
 	x4 := (4 asArbitraryPrecisionFloatNumBits: prec) 
 				inPlaceDivideBy: selfHighRes;

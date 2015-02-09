@@ -15,7 +15,7 @@ arcTan
 			x inPlaceAbs.
 			one := x one.
 			power timesRepeat: [x := x / (one + (one + x squared) sqrt)].
-			arcTan := self powerExpansionArcTan: x precision: x numBits + 6.
+			arcTan := x powerExpansionArcTanPrecision: x numBits + 6.
 			arcTan inPlaceTimesTwoPower: power].
 	self negative ifTrue: [arcTan inPlaceNegated].
 	^arcTan asArbitraryPrecisionFloatNumBits: nBits

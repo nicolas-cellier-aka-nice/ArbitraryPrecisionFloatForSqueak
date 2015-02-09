@@ -7,7 +7,7 @@ cos: x
 	x isZero ifTrue: [^x one].
 	power := ((nBits bitShift: -1) + x exponent max: 0) highBit.
 	fraction := x timesTwoPower: power negated.
-	cos := self powerExpansionCos: fraction precision: nBits + (1 bitShift: 1 + power).
+	cos := fraction powerExpansionCosPrecision: nBits + (1 bitShift: 1 + power).
 	one := x one.
 	power timesRepeat:
 		["Evaluate cos(2x)=2 cos(x)^2-1"
