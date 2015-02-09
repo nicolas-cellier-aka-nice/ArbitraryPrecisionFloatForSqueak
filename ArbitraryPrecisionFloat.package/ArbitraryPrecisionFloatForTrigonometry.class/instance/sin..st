@@ -6,7 +6,7 @@ sin: x
 	x isZero ifTrue: [^x zero].
 	five := 5 asArbitraryPrecisionFloatNumBits: x numBits.
 	fifth := x / five.
-	sin := self powerExpansionSin: fifth precision: nBits + 8.
+	sin := fifth powerExpansionSinPrecision: nBits + 8.
 	sin2 := sin squared.
 	sin2 inPlaceTimesTwoPower: 2.
 	sin4 := sin2 squared.

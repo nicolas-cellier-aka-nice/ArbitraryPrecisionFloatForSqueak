@@ -10,8 +10,10 @@ arCosh
 	y := x - one.
 	y < one
 		ifTrue:
-			[y := y asArbitraryPrecisionFloatNumBits: 16 + nBits + (y exponent negated).
-			two := one timesTwoPower: 1.
-			arCosh := ((y * (y + two)) sqrt + y + one) ln]
+			[y exponent * -4 >= nBits
+				ifTrue: [arCosh := (y powerExpansionArCoshp1Precision: y numBits) * (y timesTwoPower: 1) sqrt]
+				ifFalse:
+					[two := one timesTwoPower: 1.
+					arCosh := ((y * (y + two)) sqrt + y + one) ln]]
 		ifFalse: [arCosh := ((x squared - one) sqrt + x) ln].
 	^arCosh asArbitraryPrecisionFloatNumBits: nBits

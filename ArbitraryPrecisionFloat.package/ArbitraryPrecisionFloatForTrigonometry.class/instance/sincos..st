@@ -7,7 +7,7 @@ sincos: x
 	x isZero ifTrue: [^Array with: x zero with: x one].
 	power := ((nBits bitShift: -1) + x exponent max: 0) highBit.
 	fraction := x timesTwoPower: power negated.
-	sincos := self powerExpansionSinCos: fraction precision: nBits + (1 bitShift: 1 + power).
+	sincos := fraction powerExpansionSinCosPrecision: nBits + (1 bitShift: 1 + power).
 	sin := sincos first.
 	cos := sincos last.
 	one := x one.
