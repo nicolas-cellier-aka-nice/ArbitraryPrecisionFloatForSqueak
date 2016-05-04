@@ -15,9 +15,7 @@ testAsFloatWithUnderflowAndExcessPrecision
 
 	tooSmall := (fmin negated timesTwoPower: -2).
 	self assert: tooSmall asFloat isZero.
-	(Float canUnderstand: #signBit)
-		ifTrue: [self assert: tooSmall asFloat signBit = 1]
-		ifFalse: [self assert: tooSmall asFloat sign = -1].
+	self assert: tooSmall asFloat sign = -1..
 
 	exactTie := (Float fminNormalized predecessor asArbitraryPrecisionFloatNumBits: Float precision * 2) + (fmin/2).
 	expected := Float fminNormalized.
